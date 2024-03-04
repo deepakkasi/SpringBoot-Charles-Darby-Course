@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Log Leave</title>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>Leave Application</h3>
+    <hr>
+
+    <p class="h4 mb-4">Log Leave</p>
+    <form action="#" th:action="@{/app/leave}" th:object="${leave}" method="POST">
+
+        <input type="text" th:field="*{employee_id}"
+               class="form-control mb-4 w-25" placeholder="Employee id" >
+        <input type="text" th:field="*{employee_name}"
+               class="form-control mb-4 w-25" placeholder="Employee name">
+
+        <input type="text" th:field="*{status}"
+               class="form-control mb-4 w-25" placeholder="Status"  readonly>
+        <input type="date" th:field="*{from_date}"
+               class="form-control mb-4 w-25" placeholder="From Date">
+
+        <input type="date"  th:field="*{to_date}"
+               class="form-control mb-4 w-25">
+        <div class="text-bg-warning mb-3" style="max-width: 18rem;">
+            <span th:if="${#fields.hasErrors('*')}" th:errors="*{*}" class="error"></span> </div>
+        <input type="text" th:field="*{no_of_days}"
+               class="form-control mb-4 w-25" placeholder="No of Days">
+        <textarea th:field="*{reason_for_leave}"
+               class="form-control mb-4 w-25" placeholder="Reason for Leave" />
+
+            <select class="form-control mb-4 w-25 form-select ">
+                <option selected>Current Project</option>
+                <option th:each="tempproj:${currentProject}" th:value="${tempproj.stored_value}" th:text="${tempproj.display_value}"/>
+            </select>
+        <button type="submit" class="btn btn-info col-2">Save</button>
+    </form>
+
+    <hr>
+    <a th:href="@{/app/leaves}">Back to Leave List</a>
+
+</div>
+
+</body>
+</html>

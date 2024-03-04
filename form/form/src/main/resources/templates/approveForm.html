@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Approve/Reject Leave</title>
+    <style>
+        label{
+         font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <h3>Leave Application</h3>
+    <hr>
+
+    <p class="h4 mb-4">Approve/Reject Leave</p>
+    <form action="#" th:action="@{/app/leave}" th:object="${leave}" method="POST">
+
+        <label class="form-label">Employee Id: </label>
+        <input type="text" th:field="*{employee_id}"
+               class="form-control-plaintext" placeholder="Employee id"  readonly>
+        <label class="form-label">Employee Name: </label>
+        <input type="text" th:field="*{employee_name}"
+               class="form-control-plaintext" placeholder="Employee name" readonly >
+        <label class="form-label">Status: </label>
+        <input type="text" th:field="*{status}"
+               class="form-control mb-4 w-25" placeholder="Status" >
+        <label class="form-label">From Date: </label>
+        <input type="date" th:field="*{from_date}"
+               class="form-control-plaintext" placeholder="From Date" readonly>
+        <label class="form-label">To Date: </label>
+
+        <input type="date"  th:field="*{to_date}"
+               class="form-control-plaintext" readonly>
+
+        <div class="text-bg-warning mb-3" style="max-width: 18rem;">
+            <span th:if="${#fields.hasErrors('*')}" th:errors="*{*}" class="error"></span> </div>
+        <label class="form-label">No of Days: </label>
+        <input type="text" th:field="*{no_of_days}"
+               class="form-control-plaintext" placeholder="No of Days" readonly>
+        <label class="form-label">Reason for Leave: </label>
+        <textarea th:field="*{reason_for_leave}"
+                  class="form-control-plaintext" placeholder="Reason for Leave" readonly />
+        <label class="form-label">Current Project: </label>
+
+        <select class="form-control-plaintext " th:field="*{current_project}" disabled>
+            <option th:each="tempproj:${currentProject}" th:value="${tempproj.stored_value}" th:text="${tempproj.display_value}"/>
+        </select>
+        <button type="submit" class="btn btn-info col-2">Update</button>
+    </form>
+
+    <hr>
+    <a th:href="@{/app/leaves}">Back to Leave List</a>
+
+</div>
+
+</body>
+</html>

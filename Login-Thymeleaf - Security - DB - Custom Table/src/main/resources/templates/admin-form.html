@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+<body>
+
+<h2>luv2code Company Home Page</h2>
+<hr>
+Welcome to the luv2code company home page!
+<br><br>
+<a href="/manager">Click Here</a>for manager form
+<br><br>
+<a href="/employees">Click Here</a>for employee form
+<br><br>
+<form action="#" th:action="@{/logout}" method="POST">
+   <input type="submit" value="Logout" />
+</form>
+<br><br>
+<hr>
+<a href="/employees">Back to Homepage</a>
+
+</body>
+</html>

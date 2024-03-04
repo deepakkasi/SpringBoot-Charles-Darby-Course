@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>StudentConfirmation</title>
+</head>
+<body>
+<h1>Hello </h1>
+<br><br>
+Student <span th:text="${student.firstName}+' '+${student.lastName}"></span>
+<br><br>
+Free token :<span th:text="${student.freetoken}"></span><br><br>
+Email id :<span th:text="${student.email}"></span><br><br>
+Postal Code :<span th:text="${student.postalcode}"></span><br><br>
+Mobile Number :<span th:text="${student.phno}"></span><br><br>
+</body>
+</html>

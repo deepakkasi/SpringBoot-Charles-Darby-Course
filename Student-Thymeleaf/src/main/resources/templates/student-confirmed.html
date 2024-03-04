@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>StudentConfirmation</title>
+</head>
+<body>
+<h1>Hello </h1>
+<br><br>
+Student <span th:text="${student.firstName}+' '+${student.lastName} +' is from '+${student.country}
++' learning '+${student.language}+' language '+'had '+${student.food}"></span>
+
+</body>
+</html>

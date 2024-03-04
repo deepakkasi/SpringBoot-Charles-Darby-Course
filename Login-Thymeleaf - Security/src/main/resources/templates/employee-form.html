@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+</head>
+<body>
+
+<h2>luv2code Company Home Page</h2>
+<hr>
+Welcome to the luv2code company home page!
+<br>
+<br>
+UserName: <span sec:authentication="principal.username"></span>
+<br>
+<br>
+Role(s): <span sec:authentication="principal.authorities"></span>
+<br>
+<br>
+<div sec:Authorize="hasRole('MANAGER')">
+<a href="/manager">Click Here</a>for manager form
+<br><br>
+    <div sec:Authorize="hasRole('ADMIN')">
+<a href="/admin">Click Here</a>for admin form
+<br><br>
+ </div>
+</div>
+<form action="#" th:action="@{/logout}" method="POST">
+    <button value="logout">Logout</button>
+</form>
+</body>
+</html>

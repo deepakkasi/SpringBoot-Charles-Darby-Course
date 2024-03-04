@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+
+    <title>Leave List</title>
+    <style>
+        a{
+        text-decoration: none;
+        }
+        a:hover{
+        color:red;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h3>Leave List</h3>
+    <hr>
+    <!-- Add a button-->
+    <a th:href="@{leave/new}" class="btn btn-primary btn-sm mb-3">Add Leave</a>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+        <tr>
+            <th>Employee Id</th>
+            <th>EmployeeName</th>
+            <th>Status</th>
+            <th>From Date</th>
+            <th>To Date</th>
+            <th>NoofDays</th>
+            <th>Current Project</th>
+            <th>Reason for Leave</th>
+            <th>Action</th>
+
+
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each ="templeave:${leave}">
+            <td th:text="${templeave.employee_id}" />
+            <td> <a th:href="@{/app/employee(id=${templeave.employee_id})}"th:text="${templeave.employee_name}" /></td>
+            <td th:text="${templeave.status}" />
+            <td th:text="${#dates.format(templeave.from_date,'dd-MMM-yyyy')}" />
+            <td th:text="${#dates.format(templeave.to_date,'dd-MMM-yyyy')}" />
+            <td th:text="${templeave.no_of_days}" />
+            <td th:text="${templeave.current_project}" />
+            <td th:text="${templeave.reason_for_leave}" />
+            <td>
+                         <!--   <a th:href="@{/app/employee(id=${templeave.employee_id})}"
+                               class="btn btn-info btn-sm">
+                                View
+                            </a> -->
+
+
+                <a th:href="@{leave/update(id=${templeave.id})}"
+                   class="btn btn-info btn-sm">
+                    Update
+                </a>
+            </td>
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+</body>
+</html>

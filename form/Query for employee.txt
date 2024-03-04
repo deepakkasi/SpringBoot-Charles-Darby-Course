@@ -1,0 +1,32 @@
+USE `leave_management`;
+
+--
+-- Table structure for table `employee`
+--
+
+DROP TABLE IF EXISTS `employee`;
+
+CREATE TABLE `employee` (
+  `employee_id` int NOT NULL auto_increment,
+  `employee_name` varchar(45) DEFAULT NULL,
+  `phone_no` long DEFAULT NULL,
+  `email` varchar(45) DEFAULT NULL,
+  `Department` varchar(45) DEFAULT NULL,
+
+  
+  PRIMARY KEY (`employee_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=latin1;
+
+--
+-- Data for table `employee`
+--
+
+INSERT INTO `employee` VALUES 
+	('1000','bhoopathi','9212103131','abc@gmail.com','Automation'),
+    ('1001', 'riyaz', '9212103131', 'abc@gmail.com', 'Automation'),
+    ('1002', 'ryuk', '1231321312', 'deepak.2@abc.com', 'HR'),
+    ('1003', 'jinwoo', '1231321312', 'deepak.2@abc.com', 'HR');
+    
+
+	
+
