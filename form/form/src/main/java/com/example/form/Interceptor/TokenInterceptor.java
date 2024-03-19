@@ -2,10 +2,11 @@ package com.example.form.Interceptor;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-
+@Component
 public class TokenInterceptor extends InterceptorRegistry implements HandlerInterceptor
 {
     @Override
